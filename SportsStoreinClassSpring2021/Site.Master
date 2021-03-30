@@ -72,6 +72,15 @@
                 </div>
             </div>
         </div>
+        
+        <div id="deparmentMenu" style="text-align:center;background-color:rosybrown">
+            THIS IS WHERE THE DEPARTMENT LINKS GO
+        </div>
+
+        <div id="categoryMenu" style="text-align:center;background-color:antiquewhite">
+            THIS IS WHERE THE CATEGORY LINKS GO
+        </div>
+
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
