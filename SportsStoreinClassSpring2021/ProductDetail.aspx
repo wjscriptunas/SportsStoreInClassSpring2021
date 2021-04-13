@@ -4,14 +4,18 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     
   <div>
-
-    <asp:Label ID="titleLabel" runat="server" Text="Label"></asp:Label>
-
-    <asp:Image ID="prodImage" runat="server" />
-
-    <asp:Label ID="descLabel" runat="server" Text="Label"></asp:Label>
-
-    <asp:Label ID="priceLabel" runat="server" Text="Label"></asp:Label>
+      
+      <p><asp:Label ID="titleLabel" runat="server" Text="Label"></asp:Label>
+      </p>
+      
+      <p><asp:Image ID="prodImage" runat="server" />
+      </p>
+      
+      <p><asp:Label ID="descLabel" runat="server" Text="Label"></asp:Label>
+      </p>
+    
+      <p><asp:Label ID="priceLabel" runat="server" Text="Label"></asp:Label>
+      </p>
 
   </div>
 

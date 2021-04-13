@@ -8,7 +8,7 @@ using System.Web;
 
 namespace SportsStoreinClassSpring2021
 {
-    public class CatalogAccess
+    public class CatalogAccess // utility class
     {
         public static DataTable GetProductsbyCatID(string catID)
         {
