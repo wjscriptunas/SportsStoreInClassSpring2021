@@ -74,11 +74,28 @@
         </div>
         
         <div id="deparmentMenu" style="text-align:center;background-color:rosybrown">
-            THIS IS WHERE THE DEPARTMENT LINKS GO
+            <asp:ListView ID="departmentList" runat="server">
+                <ItemTemplate>
+                    <a style="text-href="ProductList.aspx?DepartmentID=<%#Eval("DepartmentID").ToString() %>">
+                        <%#Eval("Name").ToString() %>
+                    </a>
+                </ItemTemplate>
+
+                <ItemSeparatorTemplate> | </ItemSeparatorTemplate>
+
+            </asp:ListView>
         </div>
 
         <div id="categoryMenu" style="text-align:center;background-color:antiquewhite">
-            THIS IS WHERE THE CATEGORY LINKS GO
+           <asp:ListView ID="categoryList" runat="server">
+            <ItemTemplate>
+                    <a href="ProductList.aspx?CategoryID=<%#Eval("CategoryID").ToString() %>&DepartmentID=<%#Eval("DepartmentID").ToString() %>">
+                        <%#Eval("Name").ToString() %>
+                    </a>
+                </ItemTemplate>
+
+                <ItemSeparatorTemplate> | </ItemSeparatorTemplate>
+            </asp:ListView>
         </div>
 
         <div class="container body-content">

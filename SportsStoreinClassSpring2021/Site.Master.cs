@@ -69,9 +69,31 @@ namespace SportsStoreinClassSpring2021
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            PopulateControls();
         }
+        protected void PopulateControls()
+        {
+            string deptID = Request.QueryString["DepartmentID"];
 
+            string catID = Request.QueryString["CategoryID"];
+
+            if(catID != null || deptID != null)
+            {
+                departmentList.DataSource = CatalogAccess.GetAllDepartments();
+                departmentList.DataBind();
+
+                categoryList.DataSource = CatalogAccess.GetAllCategoriesByDeptID(deptID);
+                categoryList.DataBind();
+            }
+            else // we do not have any variables in the query string
+            {
+                departmentList.DataSource = CatalogAccess.GetAllDepartments();
+                departmentList.DataBind();
+
+                categoryList.DataSource = CatalogAccess.GetAllCategoriesByDeptID("1");
+                categoryList.DataBind();
+            }
+        }
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
         {
             Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);

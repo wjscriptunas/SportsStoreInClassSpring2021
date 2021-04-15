@@ -144,5 +144,72 @@ namespace SportsStoreinClassSpring2021
             // we will package that single row into a product object and pass it to the caller
             // the caller will unpack this object and plug in the inidividual 
         }
+        public static DataTable GetAllDepartments()
+        {
+            string connString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+
+            // create the sql connection using that connection string
+            SqlConnection conn = new SqlConnection(connString);
+
+            // create the sql command object
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "spGetAllDepts";
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+            DataTable table = new DataTable();
+
+            try
+            {
+                cmd.Connection.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                table.Load(reader);
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                cmd.Connection.Close();
+            }
+            return table;
+        }
+        
+        public static DataTable GetAllCategoriesByDeptID(string deptID)
+        {
+            string connString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+
+            // create the sql connection using that connection string
+            SqlConnection conn = new SqlConnection(connString);
+
+            // create the sql command object
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "spGetCategoriesByDeptID";
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+            SqlParameter param = new SqlParameter("@deptID", deptID);
+            param.SqlDbType = System.Data.SqlDbType.Int;
+            cmd.Parameters.Add(param);
+
+            DataTable table = new DataTable();
+
+            try
+            {
+                cmd.Connection.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                table.Load(reader);
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                cmd.Connection.Close();
+            }
+            return table;
+        }
     }
 }
