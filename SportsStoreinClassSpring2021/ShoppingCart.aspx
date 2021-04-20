@@ -2,7 +2,11 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False">
+    <p>
+        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+    </p>
+    
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="ProductID">
         <Columns>
             <asp:BoundField DataField="ProductID" HeaderText="Product ID " ReadOnly="True" />
             <asp:BoundField DataField="Productname" HeaderText="Product Name" ReadOnly="True" />
@@ -20,5 +24,12 @@
 
 
     </asp:GridView>
+    
+    <p> // your cart status
+        <asp:Label ID="cartTotalLabel" runat="server" Text="Label"></asp:Label>
+    </p>
+    <p>
+        <asp:Button ID="UpdateQty_Btn" runat="server" Text="Update Cart Quantities" />
+    </p>
 
 </asp:Content>
