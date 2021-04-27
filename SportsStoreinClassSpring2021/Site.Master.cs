@@ -69,6 +69,11 @@ namespace SportsStoreinClassSpring2021
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(HttpContext.Current.User.IsInRole("Administrator"))
+            {
+                adminLink.Visible = true;
+            }
+
             PopulateControls();
         }
         protected void PopulateControls()

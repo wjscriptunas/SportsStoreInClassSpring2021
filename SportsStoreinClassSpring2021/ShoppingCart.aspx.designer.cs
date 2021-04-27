@@ -24,6 +24,15 @@ namespace SportsStoreinClassSpring2021
         protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
+        /// cartUpdateStatusLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label cartUpdateStatusLabel;
+
+        /// <summary>
         /// GridView1 control.
         /// </summary>
         /// <remarks>
@@ -49,5 +58,14 @@ namespace SportsStoreinClassSpring2021
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button UpdateQty_Btn;
+
+        /// <summary>
+        /// Checkout_Btn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Checkout_Btn;
     }
 }

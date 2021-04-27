@@ -176,5 +176,71 @@ namespace SportsStoreinClassSpring2021
             }
             return cartTotal;
         }
+
+        public static bool UpdateItem(string productID, int newQty)
+        {
+            HttpContext context = HttpContext.Current;
+
+            string cartID;
+
+            // if the user has a cart already, fetch their cartid from their machine(cookies)
+            if (context.Request.Cookies["SportsStore_CartID"] != null)
+            {
+                cartID = context.Request.Cookies["SportsStore_CartID"].Value;
+            }
+            else
+            {
+                cartID = Guid.NewGuid().ToString();
+
+                HttpCookie cookie = new HttpCookie("SportsStore_CartID", cartID);
+
+                TimeSpan timeSpan = new TimeSpan(10, 0, 0, 0);
+
+                DateTime expirationDate = DateTime.Now.Add(timeSpan);
+
+                cookie.Expires = expirationDate;
+
+                context.Response.Cookies.Add(cookie);
+            }
+
+            // create the connection string
+            string connString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+
+            // create the sql connection using that connection string
+            SqlConnection conn = new SqlConnection(connString);
+
+            // create the sql command object
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "spShoppingCartUpdateItem";
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+            // add the parameter
+            SqlParameter param = new SqlParameter("@cartID", cartID);
+            param.SqlDbType = System.Data.SqlDbType.NVarChar;
+            cmd.Parameters.Add(param);
+
+            param = new SqlParameter("@productID", productID);
+            param.SqlDbType = System.Data.SqlDbType.Int;
+            cmd.Parameters.Add(param);
+
+            param = new SqlParameter("@Qauntity", newQty);
+            param.SqlDbType = System.Data.SqlDbType.Int;
+            cmd.Parameters.Add(param);
+
+            try
+            {
+                cmd.Connection.Open();
+                return cmd.ExecuteNonQuery() > 0;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("\n\n\n" + ex + "\n\n\n");
+            }
+            finally
+            {
+                cmd.Connection.Close();
+            }
+            return false;
+        }
     }
 }

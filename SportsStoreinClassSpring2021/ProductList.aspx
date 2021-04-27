@@ -13,7 +13,7 @@
 
           
                 <a href="ProductDetail.aspx?ProductID=<%#Eval("ProductID").ToString() %>">
-                    <img src="~/Images/<%#Eval("Thumbnail").ToString() %>" />
+                    <img src="Images/<%#Eval("Thumbnail").ToString() %>" />
                 </a>
            
             <p>

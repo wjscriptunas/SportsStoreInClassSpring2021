@@ -166,6 +166,8 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="AdminFolder\AddProduct.aspx" />
+    <Content Include="AdminFolder\AdminMainPage.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -186,6 +188,13 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Account\Web.config" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Images\accessories.jpg" />
+    <Content Include="Images\bikeart.png" />
+    <Content Include="Images\bikeartlarge.png" />
+    <Content Include="Images\clothart.jpg" />
+    <Content Include="Images\shoes.jpg" />
+    <Content Include="OrderFolder\Checkout.aspx" />
+    <Content Include="OrderFolder\OrderPlaced.aspx" />
     <Content Include="ProductDetail.aspx" />
     <Content Include="ProductList.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -329,6 +338,20 @@
     <Compile Include="Account\VerifyPhoneNumber.aspx.designer.cs">
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AdminFolder\AddProduct.aspx.cs">
+      <DependentUpon>AddProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminFolder\AddProduct.aspx.designer.cs">
+      <DependentUpon>AddProduct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminFolder\AdminMainPage.aspx.cs">
+      <DependentUpon>AdminMainPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminFolder\AdminMainPage.aspx.designer.cs">
+      <DependentUpon>AdminMainPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -359,6 +382,20 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="OrderFolder\Checkout.aspx.cs">
+      <DependentUpon>Checkout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrderFolder\Checkout.aspx.designer.cs">
+      <DependentUpon>Checkout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OrderFolder\OrderPlaced.aspx.cs">
+      <DependentUpon>OrderPlaced.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrderFolder\OrderPlaced.aspx.designer.cs">
+      <DependentUpon>OrderPlaced.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Product.cs" />
     <Compile Include="ProductDetail.aspx.cs">
       <DependentUpon>ProductDetail.aspx</DependentUpon>

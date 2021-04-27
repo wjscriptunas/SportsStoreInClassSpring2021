@@ -7,47 +7,38 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SportsStoreinClassSpring2021
+namespace SportsStoreinClassSpring2021.OrderFolder
 {
 
 
-    public partial class SiteMaster
+    public partial class Checkout
     {
 
         /// <summary>
-        /// adminLink control.
+        /// GridView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor adminLink;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
 
         /// <summary>
-        /// departmentList control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView departmentList;
+        protected global::System.Web.UI.WebControls.Button Button1;
 
         /// <summary>
-        /// categoryList control.
+        /// SqlDataSource1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView categoryList;
-
-        /// <summary>
-        /// MainContent control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
     }
 }

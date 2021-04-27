@@ -12,7 +12,8 @@ namespace SportsStoreinClassSpring2021
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            PopulateControls();
+            if(!IsPostBack)
+                PopulateControls();
         }
         public void PopulateControls()
         {
@@ -37,6 +38,46 @@ namespace SportsStoreinClassSpring2021
                 cartTotalLabel.Text = "0";
                 UpdateQty_Btn.Enabled = false;
             }
+        }
+
+        protected void UpdateQty_Btn_Click(object sender, EventArgs e)
+        {
+            int rowCount = GridView1.Rows.Count;
+
+            string productID;
+
+            int newQty;
+
+            bool success = true;
+
+            GridViewRow gridRow;
+            TextBox qtyTextBox;
+
+            for(int i = 0; i < rowCount; i++)
+            {
+                gridRow = GridView1.Rows[i]; // current row of the grid view
+                productID = GridView1.DataKeys[i].Value.ToString(); // current data key from the grid view (0th row)
+
+                qtyTextBox = (TextBox)gridRow.FindControl("editQty");
+
+                if(Int32.TryParse(qtyTextBox.Text, out newQty))
+                {
+                    success = success && ShoppingCartAccess.UpdateItem(productID, newQty);
+                }
+                else
+                {
+                    success = false;
+                }
+            }
+
+            cartUpdateStatusLabel.Text = success ? "The cart was successfully updated!!" : "Some quantity updates failed!! Please check your cart!!";
+
+            PopulateControls();
+        }
+
+        protected void Checkout_Btn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/OrderFolder/Checkout.aspx");
         }
     }
 }
